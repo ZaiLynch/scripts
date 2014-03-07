@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Resolves flickering glitch
+#
+
+case $1 in
+	right)
+		xrandr --output "HDMI3" --pos 1920x0 --mode 1024x768 --refresh 60.0
+		sleep 7
+		xrandr --output "HDMI3" --pos 1920x0 --mode 1920x1200 --refresh 60.0
+		;;
+	left)
+		xrandr --output "HDMI2" --pos 0x0 --mode 1024x768 --refresh 60.0
+		sleep 7
+		xrandr --output "HDMI2" --pos 0x0 --mode 1920x1200 --refresh 60.0
+		;;
+	*)
+		echo 'Use "togglex {left|right}" to toggle resolution for left/right monitor.' 
+		;;
+esac
